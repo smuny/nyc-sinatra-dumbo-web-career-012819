@@ -1,0 +1,15 @@
+Current Figures
+<ul>
+  <% @figures.each do |figure| %>
+<li> <%= figure.name %> </li>
+  <% end %>
+</ul>
+<form class="" action="/figures" method="post">
+
+
+Create new Figure<br>
+<input type="text" name="name">
+<br>
+<input type="submit" value="Submit">
+
+</form>

@@ -1,6 +1,13 @@
 <h2>Create New Landmark</h2>
 
-<!-- add content here -->
+<form class="" action="/landmarks" method="post">
+<% @figures.each do |f| %>
+<input type="checkbox" name="<%= f. %>" value="<%= f. %>"> <%= f. %></input> <br>
+
+
+<% end $%>
+
+</form>
 
 <a class="button" href="/figures">Landmarks</a>
 <a class="button" href="/">Home</a>

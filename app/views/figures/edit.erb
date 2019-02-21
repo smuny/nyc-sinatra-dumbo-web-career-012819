@@ -1,0 +1,13 @@
+<form class="" action="/figures/<%= @figures.id%>" method="post">
+  <input type="hidden" name="method" value="patch">
+  <h1> Change : <%= @figures.name %> </h1>
+  <ul>
+    <li>
+      <label for="title">Enter Title</label>
+      <input id="title" type="text" name="name"/>
+    </li>
+  </ul>
+
+
+    <input type="submit"/>
+</form>

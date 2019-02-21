@@ -1,4 +1,26 @@
 <h1>NYC Sinatra Lab</h1>
 
+<form class="" action="/" method="post">
+
+  Figures: <br><br>
+  <% @figures.each do |figure| %>
+    <input type ="checkbox" name="figure_id" value="<%= figure.id %>"><%= figure.name %></input><br>
+
+  <% end %>
+  <br>
+  <br>
+
+
+  Landmarks: <br><br>
+
+  <% @landmarks.each do |landmark| %>
+    <input type ="checkbox" name="title_id" value="<%= landmark.id %>"><%= landmark.name %></input><br>
+
+  <% end %>
+
+<input type="submit" value="Submit">
+
+</form>
+
 <a class="button" href="/figures">Figures</a>
 <a class="button" href="/landmarks">Landmarks</a>
