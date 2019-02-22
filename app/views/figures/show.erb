@@ -1,6 +1,9 @@
-<h1><%= @figures.name %> </h1>
+<h1><%= @figures.name %>
+</h1>
 
-<a href="/figures/<%= @figures.id %>/edit"> Edit </a>
+<a href="/figures/<%= @figures.id %>/edit">
+  Edit
+</a>
 <form action="/figures/<%= @figures.id %>" method="post">
   <input type="hidden" name="_method" value="delete"/>
   <input type="submit" value="delete landmark"/>

@@ -1,23 +1,32 @@
 class FiguresController < ApplicationController
 
-# List all figures
+  # List all figures
   get '/figures' do
-  @figures = Figure.all
-  erb :"figures/index"
+    @figures = Figure.all
+    erb :"figures/index"
   end
 
-    # view form to create new figure
+  # view form to create new figure
   get '/figures/new' do
     @figures = Figure.all
-    @f = Figure.new
     erb :"figures/new"
   end
 
-## creat new stuff
+  ## creat new stuff
   post '/figures' do
-    @figure = Figure.create(params)
+    @figure = Figure.create(params['figure'])
 
-    redirect to '/figures/#{@figure.id}'
+    unless params[:landmark][:name].empty?
+      @figure.landmarks << Landmark.create(params[:landmark])
+    end
+    unless params[:title][:name].empty?
+      @figure.titles << Title.create(params[:title])
+    end
+
+
+
+    @figure.save
+    redirect to "/figures/#{@figure.id}"
 
   end
 
@@ -26,25 +35,31 @@ class FiguresController < ApplicationController
   # redirect to '/landmarks/#{@landmarks.id}'
   # end
 
-    # see a specific single figure
+  # PASSING #
   get '/figures/:id' do
     get_figures
     erb :"figures/show"
   end
 
-    # view to edit a single figure
+  # view to edit a single figure
   get '/figures/:id/edit' do
     get_figures
     erb :"figures/edit"
   end
 
-    # updates
+  # updates
   patch '/figures/:id' do
-    binding.pry
+
     @figures = Figure.find(params[:id])
     @figures.update(params[:figure])
-    redirect to '/figures/#{@figure.id}'
+    redirect to "/figures "
   end
+
+  delete "/figures/:id" do
+    Figure.destroy(params[:id])
+    redirect to "/figures"
+  end
+
 
 
 

@@ -1,11 +1,17 @@
+<!-- Passing -->
 <ul>
   <% @figures.each do |figure| %>
-  <li>
-    <a href="/figures/<%= figure.id %>">
-      <%= figure.name %>
-    </a>
-  </li>
+    <li>
+      <a href="/figures/<%= figure.id %>">
+        <%= figure.name %>
+      </a>
+    </li>
   <% end %>
 </ul>
 
-<a href="/figures/new">Create New </a>
+<a href="/figures/new">Create New
+</a>
+<a href="/landmarks">View Landmarks
+</a>
+<a href="/">Home
+</a>
